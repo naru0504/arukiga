@@ -5,6 +5,8 @@ import 'firebase/auth';
 import 'firebase/firestore';
 import 'firebase/performance';
 import { auth, User as FirebaseUser } from 'firebase/app';
+import { ResourceRepository } from './ResourceRepository';
+import { BoughtRepository } from './BoughtRepository';
 
 const basePath = (() => {
   switch (process.env.REACT_APP_STAGE) {
@@ -87,13 +89,16 @@ export class AuthService {
   }
 }
 const authService = new AuthService(firebase.auth());
-
+const resourceRepository = new ResourceRepository(firebase.firestore());
+const boughtRepository = new BoughtRepository(firebase.firestore());
 const value = {
   homeRepository,
   homeDomain,
   firebase,
   hogeRepository,
   authService,
+  resourceRepository,
+  boughtRepository,
 };
 
 const ServiceContext = React.createContext(value);
