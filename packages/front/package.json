@@ -22,7 +22,8 @@
     "generate-module": "plop module",
     "g-m": "npm run generate-module",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "deploy": "firebase deploy --only hosting:arukiga-site"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -48,6 +49,7 @@
     "@types/storybook__addon-info": "3.4.2",
     "@types/storybook__addon-links": "3.3.2",
     "@types/storybook__react": "4.0.0",
+    "firebase-tools": "^6.11.0",
     "plop": "^2.3.0"
   },
   "proxy": "http://localhost:3000"
