@@ -6,12 +6,7 @@ import * as React from 'react';
 
 export const HomeView = () => {
   const { user } = useAuthState();
-  const { homeDomain, boughtRepository } = useServices();
-  const updateHome = homeDomain.useUpdateHome();
-
-  React.useEffect(() => {
-    updateHome();
-  }, []);
+  const { boughtRepository } = useServices();
 
   return (
     <div>
