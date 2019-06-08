@@ -1,7 +1,7 @@
 import React from 'react';
 import { HomeModule } from './modules/home/module';
 import { ServiceContextDefaultProvider } from './services';
-import { FugaModule } from './modules/fuga/module';
+
 import { LoginModule } from './modules/login/module';
 import { AuthModule, useAuthState } from './modules/auth/module';
 import { LogoutModule } from './modules/logout/module';
@@ -16,7 +16,6 @@ const Consumers = () => {
         <>
           <LogoutModule />
           <HomeModule />
-          <FugaModule />
         </>
       )}
     </>
