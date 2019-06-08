@@ -13,25 +13,21 @@ export const HomeView = () => {
       <Button
         onClick={() => {
           boughtRepository.create({
-            userId: user!.email!,
             resourceName: 'うどん',
             lastUsedAt: new Date(),
             restRate: 1,
           });
           boughtRepository.create({
-            userId: user!.email!,
             resourceName: 'カレールー',
             lastUsedAt: startOfYesterday(),
             restRate: 0,
           });
           boughtRepository.create({
-            userId: user!.email!,
             resourceName: 'ブタ肉',
             lastUsedAt: startOfYesterday(),
             restRate: 0,
           });
           boughtRepository.create({
-            userId: user!.email!,
             resourceName: 'ニンジン',
             lastUsedAt: startOfYesterday(),
             restRate: 0,
