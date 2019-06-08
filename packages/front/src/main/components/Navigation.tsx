@@ -2,7 +2,7 @@ import * as React from 'react';
 import IconCook from "./assets/IconCook.svg";
 import IconHistory from "./assets/IconHistory.svg";
 import IconRecipe from "./assets/IconRecipe.svg";
-import IconRefri from "./assets/IconRefri.svg";
+import IconRefri_Green from "./assets/IconRefri_Green.svg";
 import '../../index.css';
 
 export const Navigation = () => {
@@ -20,8 +20,8 @@ export const Navigation = () => {
       </a>
     </li>
     <li className="navigation-item">
-      <a className="navigation-item-link" href="/">
-        <img className="navigation-item-link-image" src={IconRefri} alt="ある気が" />
+      <a className="navigation-item-link is-current" href="/">
+        <img className="navigation-item-link-image" src={IconRefri_Green} alt="ある気が" />
         <span className="navigation-item-link-text">ある気が</span>
       </a>
     </li>

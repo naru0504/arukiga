@@ -25,24 +25,24 @@ export const HomeView = () => {
             lastUsedAt: new Date(),
             restRate: 1,
           });
-          // boughtRepository.create({
-          //   userId: user!.email!,
-          //   resourceName: 'カレールー',
-          //   lastUsedAt: new Date(),
-          //   restRate: 0,
-          // });
-          // boughtRepository.create({
-          //   userId: user!.email!,
-          //   resourceName: 'ブタ肉',
-          //   lastUsedAt: new Date(),
-          //   restRate: 0,
-          // });
-          // boughtRepository.create({
-          //   userId: user!.email!,
-          //   resourceName: 'ニンジン',
-          //   lastUsedAt: new Date(),
-          //   restRate: 0,
-          // });
+          boughtRepository.create({
+            userId: user!.email!,
+            resourceName: 'カレールー',
+            lastUsedAt: new Date(),
+            restRate: 0,
+          });
+          boughtRepository.create({
+            userId: user!.email!,
+            resourceName: 'ブタ肉',
+            lastUsedAt: new Date(),
+            restRate: 0,
+          });
+          boughtRepository.create({
+            userId: user!.email!,
+            resourceName: 'ニンジン',
+            lastUsedAt: new Date(),
+            restRate: 0,
+          });
         }}
       >
         テスト用データ入れる
