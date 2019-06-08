@@ -1,5 +1,9 @@
 import { useHomeActions } from 'main/modules/home/module';
 import React from 'react';
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/firestore';
+import 'firebase/performance';
 
 const basePath = (() => {
   switch (process.env.REACT_APP_STAGE) {
@@ -32,7 +36,11 @@ const homeRepository = new HomeRepository(httpClient);
 class HomeDomain {
   useUpdateHome() {
     const { updateHome } = useHomeActions();
+    const { homeRepository, hogeRepository } = useServices();
+
     return async () => {
+      const res = await hogeRepository.list();
+      console.log(res);
       const { home } = await homeRepository.getMock();
       updateHome(home);
     };
@@ -40,9 +48,29 @@ class HomeDomain {
 }
 const homeDomain = new HomeDomain();
 
+const config = {
+  apiKey: 'AIzaSyAiJu6x2qleFj5uQU9iNP0mtR_Xz7BkcGs',
+  authDomain: 'arukiga.firebaseapp.com',
+  databaseURL: 'https://miscs-randd.firebaseio.com',
+  projectId: 'miscs-randd',
+};
+
+firebase.initializeApp(config);
+
+class HogeRepository {
+  constructor(private db: firebase.firestore.Firestore) {}
+
+  list() {
+    return this.db.collection('books').get();
+  }
+}
+const hogeRepository = new HogeRepository(firebase.firestore());
+
 const value = {
   homeRepository,
   homeDomain,
+  firebase,
+  hogeRepository,
 };
 
 const ServiceContext = React.createContext(value);

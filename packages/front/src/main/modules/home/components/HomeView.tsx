@@ -10,7 +10,7 @@ export const HomeView = () => {
 
   React.useEffect(() => {
     updateHome();
-  }, [updateHome]);
+  }, []);
 
   return (
     <div>
