@@ -6,8 +6,9 @@ import IconEggs from './assets/IconEggs.svg';
 interface Props {
   arukiga: Bought[];
   naikamo: Bought[];
+  onNaiyoClick: (id: string) => void;
 }
-export const ArukigaList = ({ arukiga, naikamo }: Props) => {
+export const ArukigaList = ({ arukiga, naikamo, onNaiyoClick }: Props) => {
   return (
     <>
     <div className="arukiga-list">
