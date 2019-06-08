@@ -401,6 +401,7 @@ template {
 .login {
   width: 100vw;
   height: 100vh;
+  padding-top: 20vh;
   background-size: cover;
   background-image: url("https://user-images.githubusercontent.com/8326452/59144410-8d872700-8a12-11e9-91f5-91b9a28551dc.jpeg");
 }
@@ -409,7 +410,6 @@ template {
   width: 68vw;
   height: 40vh;
   margin: auto;
-  margin-top: 18vh;
   text-align: center;
   background: #ffffffc8;
 }
