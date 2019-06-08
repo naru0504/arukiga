@@ -1,12 +1,10 @@
+import { startOfYesterday } from 'date-fns';
 import { Button } from 'main/components/Button';
+import { useAuthState } from 'main/modules/auth/module';
 import { useServices } from 'main/services';
 import * as React from 'react';
-import { useHomeState } from '../module';
-import { useAuthState } from 'main/modules/auth/module';
-import { startOfYesterday } from 'date-fns';
 
 export const HomeView = () => {
-  const state = useHomeState();
   const { user } = useAuthState();
   const { homeDomain, boughtRepository } = useServices();
   const updateHome = homeDomain.useUpdateHome();
@@ -17,7 +15,6 @@ export const HomeView = () => {
 
   return (
     <div>
-      <div>this is {JSON.stringify(state)}</div>
       <Button
         onClick={() => {
           boughtRepository.create({
