@@ -38,4 +38,8 @@ export class BoughtRepository {
   create(bought: BoughtBody) {
     this.collection.doc().set(bought);
   }
+
+  update(id: string, bought: Partial<BoughtBody>) {
+    return this.collection.doc(id).update(bought);
+  }
 }

@@ -1,8 +1,9 @@
-import React from 'react';
+import { isAfter, startOfToday } from 'date-fns';
 import { Button } from 'main/components/Button';
-import { useArukigaListState, useArukigaListActions } from '../module';
-import { useServices } from 'main/services';
 import { useAuthState } from 'main/modules/auth/module';
+import { useServices } from 'main/services';
+import React from 'react';
+import { useArukigaListActions, useArukigaListState } from '../module';
 import { ArukigaList } from './ArukigaList';
 
 export const ArukigaListView = () => {
@@ -15,7 +16,20 @@ export const ArukigaListView = () => {
   }, []);
 
   const arukiga = boughts.filter(b => b.restRate < 1);
-  const naikamo = boughts.filter(b => b.restRate >= 1);
+  const naikamo = boughts.filter(b => b.restRate >= 1 && isAfter(b.lastUsedAt, startOfToday()));
   const props = { arukiga, naikamo };
-  return <ArukigaList {...props} />;
+  return (
+    <>
+      <Button
+        onClick={() => {
+          boughtRepository.update('wSr3EwZ0VIov78RXD1RE', { restRate: 1 }).then(() => {
+            return boughtRepository.list(user!.email!).then(boughts => updateArukiga(boughts));
+          });
+        }}
+      >
+        豚肉ないよ
+      </Button>
+      <ArukigaList {...props} />
+    </>
+  );
 };
