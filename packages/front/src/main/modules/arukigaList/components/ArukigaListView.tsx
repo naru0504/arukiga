@@ -17,14 +17,17 @@ export const ArukigaListView = () => {
 
   const arukiga = boughts.filter(b => b.restRate < 1);
   const naikamo = boughts.filter(b => b.restRate >= 1 && isAfter(b.lastUsedAt, startOfToday()));
-  const props = { arukiga, naikamo };
+  const onNaiyoClick = (id: string) => {
+    boughtRepository.update(id, { restRate: 1 }).then(() => {
+      return boughtRepository.list(user!.email!).then(boughts => updateArukiga(boughts));
+    });
+  };
+  const props = { arukiga, naikamo, onNaiyoClick };
   return (
     <>
       <Button
         onClick={() => {
-          boughtRepository.update('wSr3EwZ0VIov78RXD1RE', { restRate: 1 }).then(() => {
-            return boughtRepository.list(user!.email!).then(boughts => updateArukiga(boughts));
-          });
+          onNaiyoClick('wSr3EwZ0VIov78RXD1RE');
         }}
       >
         豚肉ないよ

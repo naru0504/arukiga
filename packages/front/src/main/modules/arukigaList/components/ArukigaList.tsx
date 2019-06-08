@@ -4,8 +4,9 @@ import { Bought } from 'main/services/BoughtRepository';
 interface Props {
   arukiga: Bought[];
   naikamo: Bought[];
+  onNaiyoClick: (id: string) => void;
 }
-export const ArukigaList = ({ arukiga, naikamo }: Props) => {
+export const ArukigaList = ({ arukiga, naikamo, onNaiyoClick }: Props) => {
   return (
     <div>
       <h3>ないかも</h3>
