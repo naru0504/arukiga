@@ -4,6 +4,7 @@ import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 import 'firebase/performance';
+import { auth, User as FirebaseUser } from 'firebase/app';
 
 const basePath = (() => {
   switch (process.env.REACT_APP_STAGE) {
@@ -66,11 +67,33 @@ class HogeRepository {
 }
 const hogeRepository = new HogeRepository(firebase.firestore());
 
+export class AuthService {
+  constructor(private firebaseAuth: auth.Auth) {}
+
+  async login(): Promise<void> {
+    const provider = new auth.GoogleAuthProvider();
+    return this.firebaseAuth.signInWithRedirect(provider);
+  }
+
+  logout(): Promise<void> {
+    return this.firebaseAuth.signOut();
+  }
+
+  getCurrentUser(): FirebaseUser | null {
+    return this.firebaseAuth.currentUser;
+  }
+  subscribe(callback: (v: FirebaseUser | null) => void) {
+    return this.firebaseAuth.onAuthStateChanged(callback);
+  }
+}
+const authService = new AuthService(firebase.auth());
+
 const value = {
   homeRepository,
   homeDomain,
   firebase,
   hogeRepository,
+  authService,
 };
 
 const ServiceContext = React.createContext(value);
