@@ -16,9 +16,9 @@ const Consumers = () => {
         <LoginModule />
       ) : (
         <>
-          <LogoutModule />
           <ArukigaListModule />
           <HomeModule />
+          <LogoutModule />
           <Navigation />
         </>
       )}
