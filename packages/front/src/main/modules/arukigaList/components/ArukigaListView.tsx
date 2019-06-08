@@ -23,16 +23,5 @@ export const ArukigaListView = () => {
     });
   };
   const props = { arukiga, naikamo, onNaiyoClick };
-  return (
-    <>
-      <Button
-        onClick={() => {
-          onNaiyoClick('wSr3EwZ0VIov78RXD1RE');
-        }}
-      >
-        豚肉ないよ
-      </Button>
-      <ArukigaList {...props} />
-    </>
-  );
+  return <ArukigaList {...props} />;
 };
