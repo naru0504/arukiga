@@ -5,6 +5,7 @@ import { ServiceContextDefaultProvider } from './services';
 import { LoginModule } from './modules/login/module';
 import { AuthModule, useAuthState } from './modules/auth/module';
 import { LogoutModule } from './modules/logout/module';
+import { ArukigaListModule } from './modules/arukigaList/module';
 
 const Consumers = () => {
   const { user } = useAuthState();
@@ -15,6 +16,7 @@ const Consumers = () => {
       ) : (
         <>
           <LogoutModule />
+          <ArukigaListModule />
           <HomeModule />
         </>
       )}
