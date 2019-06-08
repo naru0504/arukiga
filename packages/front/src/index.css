@@ -397,3 +397,24 @@ template {
   max-width: 144px;
   margin: 0 auto 16px;
 }
+
+.login {
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-image: url("https://user-images.githubusercontent.com/8326452/59144410-8d872700-8a12-11e9-91f5-91b9a28551dc.jpeg");
+}
+
+.login-area {
+  width: 68vw;
+  height: 40vh;
+  margin: auto;
+  margin-top: 18vh;
+  text-align: center;
+  background: #ffffffc8;
+}
+
+.login-area-logo {
+  display: block;
+  margin: auto;
+}
