@@ -1,7 +1,7 @@
 import React from 'react';
 import { createModule } from 'main/common/createModule';
 import { User as FirebaseUser } from 'firebase/app';
-import { AuthComponent } from './components/AuthView';
+import { AuthView } from './components/AuthView';
 
 interface AuthState {
   user: FirebaseUser | null;
@@ -27,7 +27,7 @@ export const AuthModule = (props: { children: any }) => {
 
   return (
     <AuthContext.Provider value={value}>
-      <AuthComponent>{props.children}</AuthComponent>
+      <AuthView>{props.children}</AuthView>
     </AuthContext.Provider>
   );
 };
