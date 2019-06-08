@@ -1,6 +1,9 @@
 :root {
   --black: #4D3D41;
   --limegreen: #DCE6AC;
+  --green: #CDE650;
+  --deepgreen: #9FB33E;
+  --bg: #FDFFF2;
 }
 
 body {
@@ -10,6 +13,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg) !important;
 }
 
 code {
@@ -350,6 +354,7 @@ template {
   bottom: 0;
   width: 100vw;
   border-top: 1px solid var(--limegreen);
+  background: white;
 }
 
 .navigation-item {
@@ -362,6 +367,10 @@ template {
   display: block;
 }
 
+.navigation-item-link.is-current .navigation-item-link-text {
+  color: var(--deepgreen);
+}
+
 .navigation-item-link-text {
   display: block;
   font-size: 12px;
@@ -371,4 +380,20 @@ template {
 
 .navigation-item-link:hover {
   text-decoration: none;
+}
+.arukiga-list {
+  background: white;
+  border-radius: 8px;
+  width: 96vw;
+  margin: 16px auto;
+  word-break: break-all;
+  padding: 8px;
+  border: 1px solid var(--limegreen);
+}
+
+.arukiga-list-title {
+  text-align: center;
+  border-bottom: 8px solid var(--green);
+  max-width: 144px;
+  margin: 0 auto 16px;
 }
